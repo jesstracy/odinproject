@@ -1,4 +1,4 @@
-def ceasar_cipher(message, shift_factor)
+def caesar_cipher(message, shift_factor)
   shifted_array = message.chars.map { |c|
     (c.ord + shift_factor).chr
   }
@@ -10,4 +10,4 @@ def ceasar_cipher(message, shift_factor)
 end
 
 # TODO wrap from z to a
-puts(ceasar_cipher("aBcz", 5))
+puts(caesar_cipher("aBcz", 5))
