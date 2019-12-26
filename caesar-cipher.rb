@@ -1,6 +1,10 @@
 def caesar_cipher(message, shift_factor)
   shifted_array = message.chars.map { |c|
-    (c.ord + shift_factor).chr
+    if (c.ord + shift_factor > "z".ord)
+      ("a".ord + shift_factor - 1).chr
+    else
+      (c.ord + shift_factor).chr
+    end
   }
   shifted = ""
   shifted_array.each { |c|
@@ -9,5 +13,8 @@ def caesar_cipher(message, shift_factor)
   return shifted
 end
 
-# TODO wrap from z to a
+puts(caesar_cipher("aBcz", 1))
+puts(caesar_cipher("aBcz", 2))
 puts(caesar_cipher("aBcz", 5))
+#puts(caesar_cipher("aBcz", -1)) # TODO wrap backward
+puts(caesar_cipher("Jessica", 20)) # TODO nowork
